@@ -1,20 +1,15 @@
 /**
- *  Copyright 2010 Society for Health Information Systems Programmes, India (HISP India)
+ * The contents of this file are subject to the OpenMRS Public License
+ * Version 1.0 (the "License"); you may not use this file except in
+ * compliance with the License. You may obtain a copy of the License at
+ * http://license.openmrs.org
  *
- *  This file is part of Patient-dashboard module.
+ * Software distributed under the License is distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+ * License for the specific language governing rights and limitations
+ * under the License.
  *
- *  Patient-dashboard module is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
-
- *  Patient-dashboard module is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with Patient-dashboard module.  If not, see <http://www.gnu.org/licenses/>.
+ * Copyright (C) OpenMRS, LLC.  All Rights Reserved.
  *
  **/
 
@@ -59,15 +54,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-/**
- * <p> Class: AutoCompleteController </p>
- * <p> Package: org.openmrs.module.patientdashboard.web.controller.autocomplete </p> 
- * <p> Author: Nguyen manh chuyen </p>
- * <p> Update by: Nguyen manh chuyen </p>
- * <p> Version: $1.0 </p>
- * <p> Create date: Jan 26, 2011 5:15:41 PM </p>
- * <p> Update date: Jan 26, 2011 5:15:41 PM </p>
- **/
+
 @Controller("AutoCompleteControllerPatientDashboard")
 public class AutoCompleteController {
 	
