@@ -184,7 +184,7 @@ public class OPDEntryController {
        Person person=Context.getPersonService().getPerson(patientId);
 		Date birthday = patient.getBirthdate();
 		model.addAttribute("age", PatientUtils.estimateAge(birthday));
-		model.addAttribute("ageCategory", PatientUtils.estimateAgeCategory(birthday));
+		//model.addAttribute("ageCategory", PatientUtils.estimateAgeCategory(birthday));
 
 		HospitalCoreService hcs = Context.getService(HospitalCoreService.class);
 		List<PersonAttribute> pas = hcs.getPersonAttributes(patientId);
@@ -247,7 +247,7 @@ public class OPDEntryController {
 			model.addAttribute("admittedStatus", "Admitted");
 		}
 		
-		IpdPatientAdmission ipdPatientAdmission=ipds.getIpdPatientAdmissionByPatient(patient);
+		IpdPatientAdmission ipdPatientAdmission=ipds.getIpdPatientAdmissionByPatientId(patient);
 		if (ipdPatientAdmission != null) {
 			model.addAttribute("ipdPatientAdmission",true);
 		}

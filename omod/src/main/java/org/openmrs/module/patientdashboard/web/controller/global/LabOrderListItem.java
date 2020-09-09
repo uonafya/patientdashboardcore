@@ -53,12 +53,12 @@ public class LabOrderListItem {
 		patientId = order.getPatient().getPatientId();
 		conceptId = order.getConcept().getConceptId();
 		conceptShortName = order.getConcept().getName().getShortName().isEmpty() ? order.getConcept().getName().getName() : order.getConcept().getName().getShortName();
-		startDateString = order.getStartDate() == null ? null : Context.getDateFormat().format(order.getStartDate());
+		//startDateString = order.getStartDate() == null ? null : Context.getDateFormat().format(order.getStartDate());
 		orderDateString = order.getDateCreated() == null ? null : Context.getDateFormat().format(order.getDateCreated());
 		encounterDateString = order.getEncounter().getEncounterDatetime() == null ? null : Context.getDateFormat().format(order.getEncounter().getEncounterDatetime());
 		locationId = order.getEncounter().getLocation().getLocationId();
 		locationName = order.getEncounter().getLocation().getName();
-		discontinuedDateString = order.getDiscontinuedDate() == null ? null : Context.getDateFormat().format(order.getDiscontinuedDate());
+		//discontinuedDateString = order.getDiscontinuedDate() == null ? null : Context.getDateFormat().format(order.getDiscontinuedDate());
 		accessionNumber = order.getAccessionNumber();
 		instructions = order.getInstructions();
 		ObsService obsService = Context.getService(ObsService.class);
