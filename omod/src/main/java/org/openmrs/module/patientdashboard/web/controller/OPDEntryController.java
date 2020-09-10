@@ -247,7 +247,7 @@ public class OPDEntryController {
 			model.addAttribute("admittedStatus", "Admitted");
 		}
 		
-		IpdPatientAdmission ipdPatientAdmission=ipds.getIpdPatientAdmissionByPatientId(patient);
+		IpdPatientAdmission ipdPatientAdmission=ipds.getIpdPatientAdmissionByPatient(patient);
 		if (ipdPatientAdmission != null) {
 			model.addAttribute("ipdPatientAdmission",true);
 		}
