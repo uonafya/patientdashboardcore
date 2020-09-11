@@ -5,7 +5,7 @@
   <groupId>org.openmrs.module</groupId>
   <artifactId>patientdashboard</artifactId>
   <name>Patient Dashboard</name>
-  <version>1.4.1</version>
+  <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <description>Patient  dashboard for hospital</description>
