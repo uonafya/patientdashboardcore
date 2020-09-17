@@ -84,7 +84,7 @@ public class PrintClinicalSummaryController {
 		List<PersonAttribute> pas = hcs.getPersonAttributes(patientId);
 		for (PersonAttribute pa : pas) {
 			PersonAttributeType attributeType = pa.getAttributeType();
-			if (attributeType.getPersonAttributeTypeId() == 14) {
+			if (attributeType.getPersonAttributeTypeId() == Context.getPersonService().getPersonAttributeTypeByUuid("09cd268a-f0f5-11ea-99a8-b3467ddbf779").getPersonAttributeTypeId()) {//14
 				model.addAttribute("selectedCategory", pa.getValue());
 			}
 			User user = Context.getAuthenticatedUser();
