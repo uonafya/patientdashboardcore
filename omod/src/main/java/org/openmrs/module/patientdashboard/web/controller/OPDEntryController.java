@@ -558,7 +558,7 @@ public class OPDEntryController {
 		
 		
 		
-		if(request.getParameter("weight")!=null && request.getParameter("weight")!="")
+		if(request.getParameter("weight")!=null && !request.getParameter("weight").equals(""))
 			{ String weight=request.getParameter("weight");
 			  Double weights=Double.parseDouble(weight);
 			Obs vitalstaticweight=new Obs();
@@ -574,7 +574,7 @@ public class OPDEntryController {
 			
 			
 			}
-		if(request.getParameter("height")!=null && request.getParameter("height")!="")
+		if(request.getParameter("height")!=null && !request.getParameter("height").equals(""))
 		{String height=request.getParameter("height");
 		  Double heights=Double.parseDouble(height);
 			
@@ -591,7 +591,7 @@ public class OPDEntryController {
 		
 		
 		}
-		if(request.getParameter("systolic")!=null && request.getParameter("systolic")!="")
+		if(request.getParameter("systolic")!=null && !request.getParameter("systolic").equals(""))
 		{ String sys=request.getParameter("systolic");
 		  Double systolic=Double.parseDouble(sys);
 		Obs vitalstaticweight=new Obs();
@@ -607,7 +607,7 @@ public class OPDEntryController {
 		
 		
 		}
-	if(request.getParameter("diastolic")!=null && request.getParameter("diastolic")!="")
+	if(request.getParameter("diastolic")!=null && !request.getParameter("diastolic").equals(""))
 	{String dai=request.getParameter("diastolic");
 	  Double daistolic=Double.parseDouble(dai);
 		
@@ -623,7 +623,7 @@ public class OPDEntryController {
 	encounter.addObs(vitalstaticweight);
 	
 	}
-	if(request.getParameter("pulsRate")!=null && request.getParameter("pulsRate")!="")
+	if(request.getParameter("pulsRate")!=null && !request.getParameter("pulsRate").equals(""))
 	{String pulse=request.getParameter("pulsRate");
 	  Double pulses=Double.parseDouble(pulse);
 		
@@ -639,7 +639,7 @@ public class OPDEntryController {
 	encounter.addObs(vitalstaticweight);
 	
 	}
-	if(request.getParameter("weight")!=null && request.getParameter("weight")!=""&& request.getParameter("height")!=null && request.getParameter("height")!="" )
+	if(request.getParameter("weight")!=null && !request.getParameter("weight").equals("") && request.getParameter("height")!=null && !request.getParameter("height").equals(""))
 	{String height=request.getParameter("height");
 	
 	  Double heights=Double.parseDouble(height);
@@ -661,7 +661,7 @@ public class OPDEntryController {
 	}
 	
 	
-	if(request.getParameter("temp")!=null && request.getParameter("temp")!="")
+	if(request.getParameter("temp")!=null && !request.getParameter("temp").equals(""))
 	{String temperature=request.getParameter("temp");
 	
 	
@@ -680,7 +680,7 @@ public class OPDEntryController {
 	encounter.addObs(temperatureValue);
 	
 	}
-	if(request.getParameter("lastMenstrualPeriod")!=null && request.getParameter("lastMenstrualPeriod")!="")
+	if(request.getParameter("lastMenstrualPeriod")!=null && !request.getParameter("lastMenstrualPeriod").equals(""))
 	{ String lmp=request.getParameter("lastMenstrualPeriod");
 	SimpleDateFormat formatterExt = new SimpleDateFormat("dd/MM/yyyy");
 	Date lmpdate = (Date)formatterExt.parse(lmp);
@@ -857,7 +857,7 @@ public class OPDEntryController {
 				bill.setActualAmount(amount);
 				bill.setEncounter(admitted.getPatientAdmissionLog()
 						.getIpdEncounter());
-				if (serviceAvailable == true) {
+				if (serviceAvailable) {
 					bill = billingService.saveIndoorPatientServiceBill(bill);
 				}
 
@@ -1017,7 +1017,8 @@ public class OPDEntryController {
 		Integer noOfDays;
 		String comments;
 		if (drugOrder != null) {
-			for (String drugName : drugOrder) {String arr[]=drugName.split("\\+");
+			for (String drugName : drugOrder) {
+				String[] arr =drugName.split("\\+");
 				InventoryCommonService inventoryCommonService = Context
 						.getService(InventoryCommonService.class);
 				InventoryDrug inventoryDrug = inventoryCommonService

@@ -8,12 +8,12 @@
 	<name>@MODULE_NAME@</name>
 	<version>@MODULE_VERSION@</version>
 	<package>@MODULE_PACKAGE@</package>
-	<author>Viet Nguyen, Chuyen Nguyen</author>
+	<author>HealthIT</author>
 	<description>
-			Patient Dashboard
+			Patient Dashboard core module for the EHR work
 	</description>
 
-	<activator>@MODULE_PACKAGE@.PatientDashboardActivator</activator>
+	<activator>org.openmrs.module.patientdashboard</activator>
 	<require_modules>
                   <require_module>org.openmrs.module.hospitalcore</require_module>
     </require_modules>
@@ -22,7 +22,7 @@
 	
 	<require_version>1.6.1</require_version>
 	
-	<!-- Extensions 
+
 	<extension>
 		<point>org.openmrs.admin.list</point>
 		<class>@MODULE_PACKAGE@.extension.html.AdminList</class>
@@ -32,7 +32,7 @@
 		<point>org.openmrs.gutter.tools</point>
 		<class>@MODULE_PACKAGE@.extension.html.PatientDashboardHeader</class>
 	</extension>
-	-->
+
 	
 	<!-- AOP
 	<advice>
