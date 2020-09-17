@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.openmrs.module:patientdashboard-api:1.4.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/api/pom.xml!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/api/patientdashboard-api-1.4.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/api/patientdashboard-api-1.4.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
