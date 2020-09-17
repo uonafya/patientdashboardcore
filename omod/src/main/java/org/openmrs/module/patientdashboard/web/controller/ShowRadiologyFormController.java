@@ -44,7 +44,6 @@ public class ShowRadiologyFormController {
 	 * 
 	 * @param id
 	 * @param mode
-	 * @param encounterId
 	 * @param radiologyTestId
 	 * @param model
 	 * @return
