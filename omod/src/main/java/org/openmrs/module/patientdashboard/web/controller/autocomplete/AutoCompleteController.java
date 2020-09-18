@@ -375,7 +375,7 @@ public class AutoCompleteController {
 			
 			Date birthday = patient.getBirthdate();
 			model.addAttribute("age", PatientUtils.estimateAge(birthday));
-			model.addAttribute("ageCategory", PatientUtils.estimateAgeCategory(birthday));
+			model.addAttribute("ageCategory", PatientUtils.estimateAge(birthday));
 			
 			User user=opql.getUser();
 			Person person=user.getPerson();

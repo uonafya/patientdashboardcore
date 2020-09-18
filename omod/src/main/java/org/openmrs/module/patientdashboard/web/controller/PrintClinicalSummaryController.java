@@ -78,7 +78,7 @@ public class PrintClinicalSummaryController {
 		
 		Date birthday = patient.getBirthdate();
 		model.addAttribute("age", PatientUtils.estimateAge(birthday));
-		model.addAttribute("ageCategory", PatientUtils.estimateAgeCategory(birthday));
+		model.addAttribute("ageCategory", PatientUtils.estimateAge(birthday));
 
 		HospitalCoreService hcs = Context.getService(HospitalCoreService.class);
 		List<PersonAttribute> pas = hcs.getPersonAttributes(patientId);
