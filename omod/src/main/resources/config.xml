@@ -13,7 +13,7 @@
 			Patient Dashboard core module for the EHR work
 	</description>
 
-	<activator>org.openmrs.module.patientdashboard</activator>
+	<activator>org.openmrs.module.patientdashboard.PatientDashboardActivator</activator>
 	<require_modules>
                   <require_module>org.openmrs.module.hospitalcore</require_module>
     </require_modules>
@@ -25,12 +25,12 @@
 
 	<extension>
 		<point>org.openmrs.admin.list</point>
-		<class>@MODULE_PACKAGE@.extension.html.AdminList</class>
+		<class>org.openmrs.module.patientdashboard.extension.html.AdminList</class>
 	</extension>
 	
 	<extension>
 		<point>org.openmrs.gutter.tools</point>
-		<class>@MODULE_PACKAGE@.extension.html.PatientDashboardHeader</class>
+		<class>org.openmrs.module.patientdashboard.extension.html.PatientDashboardHeader</class>
 	</extension>
 
 	
