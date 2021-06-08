@@ -11,6 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="patientdashboard" target="1.5" />
       <module name="patientdashboard-api" target="1.6" />
       <module name="patientdashboard-omod" target="1.6" />
       <module name="patientdashboardcore" target="1.5" />
