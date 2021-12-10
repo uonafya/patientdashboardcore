@@ -7,7 +7,7 @@
 .classpath
 target
 *.iml
-.idea
+*.idea
 .DS_Store
 .vscode
 
