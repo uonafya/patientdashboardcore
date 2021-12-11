@@ -58,7 +58,7 @@ public class LabOrderListItem {
 		orderId = order.getOrderId();
 		patientId = order.getPatient().getPatientId();
 		conceptId = order.getConcept().getConceptId();
-		conceptShortName = order.getConcept().getName().getShortName().isEmpty() ? order.getConcept().getName().getName() : order.getConcept().getName().getShortName();
+		conceptShortName = order.getConcept().getDisplayString().isEmpty() ? order.getConcept().getName().getName() : order.getConcept().getShortestName(order.getConcept().getName().getLocale(),true).toString();
 		startDateString = order.getDateActivated() == null ? null : Context.getDateFormat().format(order.getDateActivated());
 		orderDateString = order.getDateCreated() == null ? null : Context.getDateFormat().format(order.getDateCreated());
 		encounterDateString = order.getEncounter().getEncounterDatetime() == null ? null : Context.getDateFormat().format(order.getEncounter().getEncounterDatetime());

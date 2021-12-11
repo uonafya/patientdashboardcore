@@ -145,7 +145,7 @@ public class IPDRecordUtil {
 		AdministrationService administrationService = Context.getAdministrationService();
 		String gpProcedure = administrationService.getGlobalProperty(PatientDashboardConstants.PROPERTY_POST_FOR_PROCEDURE);
 		Concept conProcedure = conceptService.getConcept(gpProcedure);
-		List<Obs> listObsByObsGroup = Context.getObsService().findObsByGroupId(currentAdmissionLog.getOpdObsGroup().getId());
+		List<Obs> listObsByObsGroup = Context.getObsService().getObservations(null,null,null,null,null,null,null,null,currentAdmissionLog.getOpdObsGroup().getId(),null,null,false);
 		
 		if (CollectionUtils.isNotEmpty(listObsByObsGroup)) {
 			for (Obs obs : listObsByObsGroup) {

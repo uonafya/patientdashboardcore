@@ -57,7 +57,7 @@ public class IPDRecordController {
 			IpdPatientAdmitted admitted = ipdService.getAdmittedByPatientId(patientId);
 			model.addAttribute("admitted", admitted);
 			String diagnosis = "";
-			List<Obs> listObsByObsGroup = Context.getObsService().findObsByGroupId(currentAdmission.getOpdObsGroup().getId());
+			List<Obs> listObsByObsGroup = Context.getObsService().getObservations(null,null,null,null,null,null,null,null,currentAdmission.getOpdObsGroup().getId(),null,null,false);
 			
 			//get diagnosis
 			ConceptService conceptService = Context.getConceptService();

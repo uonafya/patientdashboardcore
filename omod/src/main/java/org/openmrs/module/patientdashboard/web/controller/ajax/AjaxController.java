@@ -298,7 +298,7 @@ public class AjaxController {
 				obsDiagnosis.setObsDatetime(date);
 				obsDiagnosis.setLocation(location);
 				obsDiagnosis.setDateCreated(date);
-				obsDiagnosis.setPatient(ipdEncounter.getPatient());
+				obsDiagnosis.setPerson(ipdEncounter.getPatient());
 				obsDiagnosis.setEncounter(ipdEncounter);
 				obsDiagnosis = Context.getObsService().saveObs(obsDiagnosis, "update obs diagnosis if need");
 				obses.add(obsDiagnosis);
@@ -327,7 +327,7 @@ public class AjaxController {
 					obsProcedure.setCreator(user);
 					obsProcedure.setObsDatetime(date);
 					obsProcedure.setLocation(location);
-					obsProcedure.setPatient(ipdEncounter.getPatient());
+					obsProcedure.setPerson(ipdEncounter.getPatient());
 					obsProcedure.setDateCreated(date);
 					obsProcedure.setEncounter(ipdEncounter);
 					obsProcedure = Context.getObsService().saveObs(obsProcedure, "update obs diagnosis if need");
@@ -344,7 +344,7 @@ public class AjaxController {
 			if (!listConceptDiagnosis.contains(con)) {
 				for (Obs obx : listObsOfIpdEncounter) {
 					if (obx.getValueCoded().getConceptId().intValue() == con.getConceptId().intValue()) {
-						Context.getObsService().deleteObs(obx);
+						Context.getObsService().purgeObs(obx);
 						obses.remove(obx);
 					}
 				}
@@ -355,7 +355,7 @@ public class AjaxController {
 			if (!listConceptProcedure.contains(con)) {
 				for (Obs obx : listObsOfIpdEncounter) {
 					if (obx.getValueCoded().getConceptId().intValue() == con.getConceptId().intValue()) {
-						Context.getObsService().deleteObs(obx);
+						Context.getObsService().purgeObs(obx);
 						obses.remove(obx);
 					}
 				}

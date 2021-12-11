@@ -57,6 +57,7 @@ import org.openmrs.module.hospitalcore.model.OpdPatientQueue;
 import org.openmrs.module.hospitalcore.model.OpdPatientQueueLog;
 import org.openmrs.module.hospitalcore.util.PatientDashboardConstants;
 import org.openmrs.module.hospitalcore.util.PatientUtils;
+import org.openmrs.module.kenyaemr.api.KenyaEmrService;
 import org.openmrs.module.patientdashboard.util.PatientDashboardUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -127,7 +128,7 @@ public class MainController {
 		// get Encounter by date
 		Encounter encounter = null;
 		EncounterService es = Context.getEncounterService();
-		List<Encounter> listEncounter = es.getEncounters(patient, createdOn, createdOn);
+		List<Encounter> listEncounter = es.getEncounters(patient,Context.getService(KenyaEmrService.class).getDefaultLocation(),createdOn, createdOn,null,null,null,null,null,false);
 		if (1 == listEncounter.size())
 			encounter = listEncounter.get(0);
 		else {
@@ -145,8 +146,9 @@ public class MainController {
 		
 		List<Obs> listObsTemporaryCategories = new ArrayList<Obs>();
 		Obs referral = null;
-		
-		Set<Obs> setObs = Context.getObsService().getObservations(encounter);
+
+
+		Set<Obs> setObs = encounter.getObs();
 		Iterator<Obs> obs = setObs.iterator();
 		Obs o = new Obs();
 		while (obs.hasNext()) {

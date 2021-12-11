@@ -14,7 +14,7 @@
  *  GNU General Public License for more details.
  *
  *  You should have received a copy of the GNU General Public License
- *  along with Patient-dashboard module.  If not, see <http://www.gnu.org/licenses/>.
+ *  along with Patient-dashboard module.  If not, see <http://www.gnu.orgz/licenses/>.
  *
  **/
 
@@ -22,7 +22,6 @@ package org.openmrs.module.patientdashboard;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.openmrs.module.Activator;
 import org.openmrs.module.ModuleActivator;
 
 /**

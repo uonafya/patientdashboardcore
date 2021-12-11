@@ -56,6 +56,7 @@ import org.openmrs.api.AdministrationService;
 import org.openmrs.api.ConceptService;
 import org.openmrs.api.PatientService;
 import org.openmrs.api.context.Context;
+import org.openmrs.module.ehrconfigs.utils.EhrConfigsUtils;
 import org.openmrs.module.hospitalcore.BillingService;
 import org.openmrs.module.hospitalcore.HospitalCoreService;
 import org.openmrs.module.hospitalcore.InventoryCommonService;
@@ -355,16 +356,16 @@ public class OPDEntryController {
 		encounter.setProvider(user);
 		encounter.setEncounterDatetime(date);
 		encounter.setEncounterType(encounterType);
+		encounter.setEncounterType(encounterType);
 		encounter.setLocation(location);
 		}
 		*/
 		encounter.setPatient(patient);
 		encounter.setCreator(user);
-		encounter.setProvider(user);
+		encounter.setProvider(EhrConfigsUtils.getDefaultEncounterRole(),EhrConfigsUtils.getProvider(user.getPerson()));
 		encounter.setEncounterDatetime(date);
 		encounter.setEncounterType(encounterType);
 		encounter.setLocation(location);
-
 		ConceptService conceptService = Context.getConceptService();
 		GlobalProperty gpDiagnosis = administrationService
 				.getGlobalPropertyObject(PatientDashboardConstants.PROPERTY_PROVISIONAL_DIAGNOSIS);
@@ -410,7 +411,7 @@ public class OPDEntryController {
 			obsDiagnosis.setCreator(user);
 			obsDiagnosis.setDateCreated(date);
 			obsDiagnosis.setEncounter(encounter);
-			obsDiagnosis.setPatient(patient);
+			obsDiagnosis.setPerson(patient);
 			if(!(arrlist.contains(cId)))
 			{
 				arrlist.add(cId);
@@ -432,7 +433,7 @@ public class OPDEntryController {
 			obsDiagnosis.setCreator(user);
 			obsDiagnosis.setDateCreated(date);
 			obsDiagnosis.setEncounter(encounter);
-			obsDiagnosis.setPatient(patient);
+			obsDiagnosis.setPerson(patient);
 			encounter.addObs(obsDiagnosis);
 		}
 
@@ -451,7 +452,7 @@ public class OPDEntryController {
 				obsDiagnosis.setCreator(user);
 				obsDiagnosis.setDateCreated(date);
 				obsDiagnosis.setEncounter(encounter);
-				obsDiagnosis.setPatient(patient);
+				obsDiagnosis.setPerson(patient);
 				encounter.addObs(obsDiagnosis);
 			}
 
@@ -472,7 +473,7 @@ public class OPDEntryController {
 				obsInvestigation.setCreator(user);
 				obsInvestigation.setDateCreated(date);
 				obsInvestigation.setEncounter(encounter);
-				obsInvestigation.setPatient(patient);
+				obsInvestigation.setPerson(patient);
 				encounter.addObs(obsInvestigation);
 			}
 
@@ -488,7 +489,7 @@ public class OPDEntryController {
 			obsDiagnosis.setCreator(user);
 			obsDiagnosis.setDateCreated(date);
 			obsDiagnosis.setEncounter(encounter);
-			obsDiagnosis.setPatient(patient);
+			obsDiagnosis.setPerson(patient);
 			encounter.addObs(obsDiagnosis);
 		}
 
@@ -510,7 +511,7 @@ public class OPDEntryController {
 			obsInternalReferral.setCreator(user);
 			obsInternalReferral.setDateCreated(date);
 			obsInternalReferral.setEncounter(encounter);
-			obsInternalReferral.setPatient(patient);
+			obsInternalReferral.setPerson(patient);
 			encounter.addObs(obsInternalReferral);
 
 			Concept currentOpd = conceptService.getConcept(command.getOpdId());
@@ -551,7 +552,7 @@ public class OPDEntryController {
 			obsExternalReferral.setCreator(user);
 			obsExternalReferral.setDateCreated(date);
 			obsExternalReferral.setEncounter(encounter);
-			obsExternalReferral.setPatient(patient);
+			obsExternalReferral.setPerson(patient);
 			encounter.addObs(obsExternalReferral);
 		}
 //Vital Static
@@ -562,7 +563,7 @@ public class OPDEntryController {
 			{ String weight=request.getParameter("weight");
 			  Double weights=Double.parseDouble(weight);
 			Obs vitalstaticweight=new Obs();
-			vitalstaticweight.setPatient(patient);
+			vitalstaticweight.setPerson(patient);
 			vitalstaticweight.setEncounter(encounter);
 			vitalstaticweight.setConcept(Context.getConceptService().getConcept("WEIGHT"));
 			vitalstaticweight.setDateCreated(date);
@@ -579,7 +580,7 @@ public class OPDEntryController {
 		  Double heights=Double.parseDouble(height);
 			
 			Obs vitalstaticweight=new Obs();
-		vitalstaticweight.setPatient(patient);
+		vitalstaticweight.setPerson(patient);
 		vitalstaticweight.setEncounter(encounter);
 		vitalstaticweight.setConcept(Context.getConceptService().getConcept("HEIGHT"));
 		vitalstaticweight.setDateCreated(date);
@@ -595,7 +596,7 @@ public class OPDEntryController {
 		{ String sys=request.getParameter("systolic");
 		  Double systolic=Double.parseDouble(sys);
 		Obs vitalstaticweight=new Obs();
-		vitalstaticweight.setPatient(patient);
+		vitalstaticweight.setPerson(patient);
 		vitalstaticweight.setEncounter(encounter);
 		vitalstaticweight.setConcept(Context.getConceptService().getConcept("SYSTOLIC BLOOD PRESSURE"));
 		vitalstaticweight.setDateCreated(date);
@@ -612,7 +613,7 @@ public class OPDEntryController {
 	  Double daistolic=Double.parseDouble(dai);
 		
 		Obs vitalstaticweight=new Obs();
-	vitalstaticweight.setPatient(patient);
+	vitalstaticweight.setPerson(patient);
 	vitalstaticweight.setEncounter(encounter);
 	vitalstaticweight.setConcept(Context.getConceptService().getConcept("DAISTOLIC BLOOD PRESSURE"));
 	vitalstaticweight.setDateCreated(date);
@@ -628,7 +629,7 @@ public class OPDEntryController {
 	  Double pulses=Double.parseDouble(pulse);
 		
 		Obs vitalstaticweight=new Obs();
-	vitalstaticweight.setPatient(patient);
+	vitalstaticweight.setPerson(patient);
 	vitalstaticweight.setEncounter(encounter);
 	vitalstaticweight.setConcept(Context.getConceptService().getConcept("PULSE RATE"));
 	vitalstaticweight.setDateCreated(date);
@@ -648,7 +649,7 @@ public class OPDEntryController {
 	  Double BMI=((weights)/((heights/100)*(heights/100)));
 	  
 		Obs vitalstaticweight=new Obs();
-	vitalstaticweight.setPatient(patient);
+	vitalstaticweight.setPerson(patient);
 	vitalstaticweight.setEncounter(encounter);
 	vitalstaticweight.setConcept(Context.getConceptService().getConcept("BMI"));
 	vitalstaticweight.setDateCreated(date);
@@ -669,7 +670,7 @@ public class OPDEntryController {
 	  Double temperatures=Double.parseDouble(temperature);
 		
 		Obs temperatureValue=new Obs();
-		temperatureValue.setPatient(patient);
+		temperatureValue.setPerson(patient);
 		temperatureValue.setEncounter(encounter);
 		temperatureValue.setConcept(Context.getConceptService().getConcept("TEMPERATURE"));
 		temperatureValue.setDateCreated(date);
@@ -685,7 +686,7 @@ public class OPDEntryController {
 	SimpleDateFormat formatterExt = new SimpleDateFormat("dd/MM/yyyy");
 	Date lmpdate = (Date)formatterExt.parse(lmp);
 	Obs vitalstaticweight=new Obs();
-	vitalstaticweight.setPatient(patient);
+	vitalstaticweight.setPerson(patient);
 	vitalstaticweight.setEncounter(encounter);
 	vitalstaticweight.setConcept(Context.getConceptService().getConcept("LAST MENSTRUAL PERIOD"));
 	vitalstaticweight.setDateCreated(date);
@@ -746,7 +747,7 @@ public class OPDEntryController {
 
 		obsOutcome.setCreator(user);
 		obsOutcome.setDateCreated(date);
-		obsOutcome.setPatient(patient);
+		obsOutcome.setPerson(patient);
 		obsOutcome.setEncounter(encounter);
 		encounter.addObs(obsOutcome);
 		Context.getEncounterService().saveEncounter(encounter);
