@@ -7,6 +7,9 @@
 .classpath
 target
 *.iml
+api/patientdashboard-api.iml
+omod/patientdashboard-omod.iml
+.idea/patientdashboardcore.iml
 *.idea
 .DS_Store
 .vscode
