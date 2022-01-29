@@ -42,7 +42,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.openmrs.module:hospitalcore-api:1.0.0" level="project" />
     <orderEntry type="module" module-name="patientdashboard-api" />
-    <orderEntry type="library" name="Maven: org.openmrs.module:ehrconfigs-api:1.0.10-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: org.openmrs.module:ehrconfigs-api:2.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.openmrs.module:kenyaemr-api:17.0.3" level="project" />
     <orderEntry type="library" name="Maven: joda-time:joda-time:2.1" level="project" />
     <orderEntry type="library" name="Maven: net.sf.opencsv:opencsv:2.3" level="project" />
